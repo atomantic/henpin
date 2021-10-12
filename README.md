@@ -27,6 +27,15 @@ or edit `pin.sh` to add your own addresses and run like so:
 ./pin.sh
 ```
 
+## File Stuck?
+
+If the script hangs on a particular file (e.g. ipfs://QmdnQYJWkK2N5oVYhDY3GfX6kz4CG6bcXSbaLkRs8krF7u), you can try jiggling the preverbial handle on IPFS by loading the asset in the two main ipfs gateways:
+
+https://cloudflare-ipfs.com/ipfs/QmdnQYJWkK2N5oVYhDY3GfX6kz4CG6bcXSbaLkRs8krF7u
+https://ipfs.io/ipfs/QmdnQYJWkK2N5oVYhDY3GfX6kz4CG6bcXSbaLkRs8krF7u
+
+just replace `QmdnQYJWkK2N5oVYhDY3GfX6kz4CG6bcXSbaLkRs8krF7u` with the troublesome hash. This worked for me after my local IPFS hung for a while, slow loading a few hashes. Once I routed the assets close to me via the two gateways above and restarting the pinning tool, it resolved quickly. This may just be me reading tea leaves late at night though with anecdotal evidence. Your mileage may vary. Give a shot and let me know if it works or not. Please file a bug or make a pull-request if you find any issues or have ideas for improvements.
+
 ## Under the Hood
 
 this repo created by Adam Eivy @antic - https://tryshowtime.com/antic
