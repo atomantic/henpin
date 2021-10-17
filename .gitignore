@@ -3,3 +3,4 @@ node_modules
 .npm
 # Optional eslint cache
 .eslintcache
+.state.json

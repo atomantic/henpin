@@ -27,6 +27,18 @@ or edit `pin.sh` to add your own addresses and run like so:
 ./pin.sh
 ```
 
+## HENode
+
+You can fun a full node of all H=N published assets by running
+
+```
+node henode.js
+```
+
+This will keep track of which files have already succesfully pinnned in a local state file (`.state.json`) and will resume from there on restarts.
+
+![henode running](./docs/henode.png)
+
 ## File Stuck?
 
 If the script hangs on a particular file (e.g. ipfs://QmdnQYJWkK2N5oVYhDY3GfX6kz4CG6bcXSbaLkRs8krF7u), you can try jiggling the proverbial handle on IPFS by loading the asset in the two main ipfs gateways:
