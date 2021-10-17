@@ -12,7 +12,7 @@
 
 const getBlockedObj = require("./lib/get.blocked.obj");
 const getBlockedTz = require("./lib/get.blocked.tz");
-const getObjkts = require("./lib/get.objkts");
+const getObjkts = require("./lib/get.objkts.addr");
 const pin = require("./lib/ipfs.pin");
 // const sleep = require("./lib/sleep");
 
