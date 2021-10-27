@@ -1,6 +1,6 @@
 {
   "name": "henpin",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "A Hic Et Nunc IPFS Pinning Tool - hěn pīn 狠拼 (very together, much backup)",
   "main": "pin.js",
   "scripts": {
