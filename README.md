@@ -27,6 +27,20 @@ or edit `pin.sh` to add your own addresses and run like so:
 ./pin.sh
 ```
 
+### Timeout Config
+
+There is a default timeout on IPFS pin set to 60 seconds in `./config.js`. You can override this value by setting the `IPFS_PIN_TIMEOUT` env var to an arbitrary value like so:
+
+> Example setting timeout to 1 second:
+
+```
+IPFS_PIN_TIMEOUT=1s node pin.js tz1iyFi4WjSttoja7Vi1EJYMEKKSebQyMkF9
+
+# OR
+
+IPFS_PIN_TIMEOUT=1s ./pin.sh
+```
+
 ## HENode
 
 You can fun a full node of all H=N published assets by running

@@ -7,4 +7,5 @@ module.exports = {
     // "ipfs://QmdnQYJWkK2N5oVYhDY3GfX6kz4CG6bcXSbaLkRs8krF7u",
     // "ipfs://QmSFJfVCSH7DQ3rwYTq8LgRRUCs6EFt9sQKqpQHFW6P6QC",
   ],
+  timeout: "60s",
 };
