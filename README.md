@@ -15,7 +15,8 @@ This is a tool for pinning all of the creations and collections of a given tezos
 1. Install and run IPFS: https://ipfs.io/#install
 2. Git Clone this repository or download the release zip file
 3. Make sure you have Node.js installed: http://nodejs.org
-4. Pin collection/creations by wallet address:
+4. run `npm i` to install node modules
+5. Pin collection/creations by wallet address:
 
 ```
 node pin.js tz1iyFi4WjSttoja7Vi1EJYMEKKSebQyMkF9
@@ -55,16 +56,7 @@ This will keep track of which files have already succesfully pinnned in a local 
 
 ## File Stuck?
 
-If the script hangs on a particular file (e.g. ipfs://QmdnQYJWkK2N5oVYhDY3GfX6kz4CG6bcXSbaLkRs8krF7u), you can try jiggling the proverbial handle on IPFS by loading the asset in the two main ipfs gateways:
-
-https://cloudflare-ipfs.com/ipfs/QmdnQYJWkK2N5oVYhDY3GfX6kz4CG6bcXSbaLkRs8krF7u
-https://ipfs.io/ipfs/QmdnQYJWkK2N5oVYhDY3GfX6kz4CG6bcXSbaLkRs8krF7u
-
-just replace `QmdnQYJWkK2N5oVYhDY3GfX6kz4CG6bcXSbaLkRs8krF7u` with the troublesome hash. This worked for me after my local IPFS hung for a while, slow loading a few hashes. Once I routed the assets close to me via the two gateways above and restarting the pinning tool, it resolved quickly. This may just be me reading tea leaves late at night though with anecdotal evidence. Your mileage may vary. Give a shot and let me know if it works or not. Please file a bug or make a pull-request if you find any issues or have ideas for improvements.
-
-### Automagic Unstick
-
-By setting `IPFS_UNSTICK=true` env var, the engine will attempt to curl cloudflare and ipfs on timeouts and attempt to re-pin after successfully loading the assets. This is off by default as it is in beta mode.
+By setting `IPFS_UNSTICK=true` env var, the engine will attempt to download the asset from the set of gateways listed in `config.js` when it encounters an IPFS timeout or merkledag error. If able to download from a gateway, it will then `add` the locally downloaded asset to IPFS, which will automatically pin the item. This behavior is disabled by default as it is in beta mode.
 
 ```
 IPFS_UNSTICK=true node pin.js tz1iyFi4WjSttoja7Vi1EJYMEKKSebQyMkF9
@@ -72,6 +64,15 @@ IPFS_UNSTICK=true node pin.js tz1iyFi4WjSttoja7Vi1EJYMEKKSebQyMkF9
 # OR
 
 IPFS_UNSTICK=true  ./pin.sh
+```
+
+## Unpin Everything and Start Over?
+
+You can `reset` your ipfs pins (unpin everything) like so:
+
+```
+ipfs pin ls --type recursive | cut -d' ' -f1 | xargs -n1 ipfs pin rm
+ipfs repo gc
 ```
 
 ## Under the Hood
