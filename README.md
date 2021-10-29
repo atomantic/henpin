@@ -54,18 +54,6 @@ This will keep track of which files have already succesfully pinnned in a local 
 
 ![henode running](./docs/henode.png)
 
-## File Stuck?
-
-By setting `IPFS_UNSTICK=true` env var, the engine will attempt to download the asset from the set of gateways listed in `config.js` when it encounters an IPFS timeout or merkledag error. If able to download from a gateway, it will then `add` the locally downloaded asset to IPFS, which will automatically pin the item. This behavior is disabled by default as it is in beta mode.
-
-```
-IPFS_UNSTICK=true node pin.js tz1iyFi4WjSttoja7Vi1EJYMEKKSebQyMkF9
-
-# OR
-
-IPFS_UNSTICK=true  ./pin.sh
-```
-
 ## Unpin Everything and Start Over?
 
 You can `reset` your ipfs pins (unpin everything) like so:

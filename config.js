@@ -7,7 +7,7 @@ module.exports = {
     // "ipfs://QmdnQYJWkK2N5oVYhDY3GfX6kz4CG6bcXSbaLkRs8krF7u",
     // "ipfs://QmSFJfVCSH7DQ3rwYTq8LgRRUCs6EFt9sQKqpQHFW6P6QC",
   ],
-  unstick: process.env.IPFS_UNSTICK || false,
+  unstick: process.env.IPFS_UNSTICK || true,
   timeout: process.env.IPFS_PIN_TIMEOUT || "60s",
   gateways: [
     "https://cloudflare-ipfs.com/ipfs/",
