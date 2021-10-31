@@ -6,31 +6,20 @@
  * additionally grabs updated blocklists to unpin/kill blocked items
  */
 
-const fs = require("fs");
+const { pinned, save } = require("./lib/state");
 
 const getObjkts = require("./lib/get.objkts.all");
 const pinObjkts = require("./lib/pin.objkts");
 
-const stateFile = `${__dirname}/.state.json`;
-
-let alreadyPinned = [];
-
-const stateFileExists = fs.existsSync(stateFile);
-if (!stateFileExists) {
-  fs.writeFileSync(stateFile, JSON.stringify(alreadyPinned));
-} else {
-  alreadyPinned = JSON.parse(fs.readFileSync(stateFile).toString());
-}
-
 const pinNewObjkts = async () => {
   // call hicdex to get full list of objects
   const objkts = await getObjkts();
-  const newObjkts = objkts.filter((o) => !alreadyPinned.includes(o.id));
+  const newObjkts = objkts.filter((o) => !pinned.includes(o.id));
   console.log(`✅ ${newObjkts.length.toLocaleString()} objkts to pin`);
   if (newObjkts.length) {
     await pinObjkts(newObjkts, (id) => {
-      alreadyPinned.push(id);
-      fs.writeFileSync(stateFile, JSON.stringify(alreadyPinned));
+      pinned.push(id);
+      save();
     });
   }
   // wait 1 minute before checking hicdex again
@@ -38,6 +27,6 @@ const pinNewObjkts = async () => {
 };
 
 (async () => {
-  console.log(`running HENode with ${alreadyPinned.length} already synced`);
+  console.log(`running HENode with ${pinned.length} already synced`);
   await pinNewObjkts();
 })();
