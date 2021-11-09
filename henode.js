@@ -5,7 +5,9 @@
  *
  * additionally grabs updated blocklists to unpin/kill blocked items
  */
-
+require("console-stamp")(console, {
+  format: ":date(yyyy-mm-dd HH:MM:ss.l)",
+});
 const { pinned, save } = require("./lib/state");
 
 const getObjkts = require("./lib/get.objkts.all");

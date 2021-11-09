@@ -1,6 +1,6 @@
 {
   "name": "henpin",
-  "version": "1.3.3",
+  "version": "1.4.0",
   "description": "A Hic Et Nunc IPFS Pinning Tool - hěn pīn 狠拼 (very together, much backup)",
   "main": "pin.js",
   "scripts": {
@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/atomantic/henpin#readme",
   "dependencies": {
+    "console-stamp": "^3.0.3",
     "follow-redirects": "^1.14.4"
   }
 }

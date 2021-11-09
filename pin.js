@@ -6,7 +6,9 @@
  *
  * node pin.js tz1iyFi4WjSttoja7Vi1EJYMEKKSebQyMkF9
  */
-
+require("console-stamp")(console, {
+  format: ":date(yyyy-mm-dd HH:MM:ss.l)",
+});
 const getObjkts = require("./lib/get.objkts.addr");
 const pinObjkts = require("./lib/pin.objkts");
 
