@@ -56,7 +56,7 @@ This will keep track of which files have already succesfully pinnned in a local 
 
 ## Remote pinnig
 
-To use a remote pining service change the defaults in the `./config.js` and
+To use a remote pining service, change the defaults in the `./config.js` and
 1. set the value of `local` to `false`
 2. set the value of `remoteservice` to the nickname of your ipfs remote service 
 
