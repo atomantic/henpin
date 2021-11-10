@@ -54,6 +54,15 @@ This will keep track of which files have already succesfully pinnned in a local 
 
 ![henode running](./docs/henode.png)
 
+## Remote pinnig
+
+To use a remote pining service change the defaults in the `./config.js` and
+1. set the value of `local` to `false`
+2. set the value of `remoteservice` to the nickname of your ipfs remote service 
+
+If you want to use the free pinning service from Pinata follow this guide https://docs.ipfs.io/how-to/work-with-pinning-services/#use-an-existing-pinning-service to get the API key and set it up in your IPFS instance.
+
+
 ## Unpin Everything and Start Over?
 
 You can `reset` your ipfs pins (unpin everything) like so:
