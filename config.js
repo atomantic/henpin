@@ -9,6 +9,7 @@ module.exports = {
   ],
   unstick: process.env.IPFS_UNSTICK || true,
   timeout: process.env.IPFS_PIN_TIMEOUT || "60s",
+  local: process.env.IPFS_LOCAL || true,
   gateways: [
     "https://cloudflare-ipfs.com/ipfs/",
     "https://ipfs.infura.io/ipfs/",
